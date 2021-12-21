@@ -1,14 +1,13 @@
 # BUSINESS MESSAGES: Echo Bot
 
-This sample demonstrates how to use the [Business Messages Node.js client library](https://github.com/google-business-communications/nodejs-businessmessages) for performing operations
-with the [Business Messages API](https://developers.google.com/business-communications/business-messages/reference/rest).
+This sample demonstrates how to receive a message from the [Business Messages](https://developers.google.com/business-communications/business-messages/reference/rest)
+platform and echo the same message back to the user using the
+[Business Messages Node.js client library](https://github.com/google-business-communications/nodejs-businessmessages).
 
-This sample contains multiple example codebases. Each subfolder
-is a complete example bot and can be deployed to Google App Engine
-to support a Business Messages conversational experience.
+This sample runs on the Google App Engine.
 
-This application assumes that you're signed up with
-[Business Messages](https://developers.google.com/business-communications/business-messages/guides/set-up/register).
+See the Google App Engine (https://cloud.google.com/appengine/docs/nodejs/) standard environment
+documentation for more detailed instructions.
 
 ## Documentation
 
@@ -25,19 +24,29 @@ You must have the following software installed on your machine:
 
 1.  [Register with Business Messages](https://developers.google.com/business-communications/business-messages/guides/set-up/register).
 1.  Once registered, follow the instructions to [enable the APIs for your project](https://developers.google.com/business-communications/business-messages/guides/set-up/register#enable-api).
+1. Open the [Create an agent](https://developers.google.com/business-communications/business-messages/guides/set-up/agent)
+guide and follow the instructions to create a Business Messages agent.
 
-## Samples
+## Deploy the sample
 
-Each sample has a `README.md` with instructions for running the sample.
+1.  In a terminal, navigate to this sample's root directory.
 
-| Sample                      | Description                       |
-| --------------------------- | --------------------------------- |
-| [step1_base](https://github.com/google-business-communications/bm-nodejs-echo-bot/tree/master/step1_base) | Base code for supporting an echo bot on Business Messages. |
-| [step2_rich_features](https://github.com/google-business-communications/bm-nodejs-echo-bot/tree/master/step2_rich_features) | Extension of the base code that contains TODOs to create a rich messaging experience. |
-| [full_sample](https://github.com/google-business-communications/bm-nodejs-echo-bot/tree/master/full_sample) | Complete solution for adding rich features. |
-| [message_validation_sample](https://github.com/google-business-communications/bm-nodejs-echo-bot/tree/master/message_validation_sample) | Demonstrates how to validate messages com from Google. |
+1.  Run the following commands:
 
-## Learn more
+    ```bash
+    gcloud config set project PROJECT_ID
+    ```
 
-To learn more about setting up Business Messages and supporting
-chat from Search and Maps, see the [documentation](https://developers.google.com/business-communications/business-messages/guides).
+    Where PROJECT_ID is the project ID for the project you created when you registered for
+    Business Messages.
+
+    ```base
+    gcloud app deploy
+    ```
+
+1.  On your mobile device, use the test business URL associated with the
+    Business Messages agent you created. Open a conversation with your agent
+    and type in "Hello". Once delivered, you should receive "Hello" back
+    from the agent.
+
+    See the [Test an agent](https://developers.google.com/business-communications/business-messages/guides/set-up/agent#test-agent) guide if you need help retrieving your test business URL.
